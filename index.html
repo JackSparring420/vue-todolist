@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Lista di cose da fare</h1>
+        <!-- inserzione di vue -->
+        <div id="myapp">
+    
+            <!-- inseriamo task -->
+            <input type="text" v-model="newTask.text" @keyup.enter="aggiungiTask" placeholder="inserisci nuova task">
+            <button @click="aggiungiTask">Aggiungi task</button>
+                <!-- condizione nel caso in cui la lista è vuota -->
+            <div v-if="tasks.length === []">La tua lista è vuota</div>
+            <!-- task di partenza -->
+            <ul v-else>
+                <li @click="sottolinea(i)" v-for="task, i in tasks" :key="i" :class="task.done === true ? 'done' : '' ">
+                    {{task.text}}
+                    <span @click="removeItem(i)"><i class="fas fa-trash-alt"></i></span> <!-- tasto per rimuovere task -->
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="js/myscript.js"></script>
+</body>
+</html>

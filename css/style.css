@@ -1,0 +1,15 @@
+.done{
+    text-decoration: line-through;
+}
+
+#myapp li {
+    cursor: pointer;
+    user-select: none;
+}
+
+#myapp li span {
+    margin-left: 20px;
+}
+
+
+
